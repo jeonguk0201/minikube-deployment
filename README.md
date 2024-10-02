@@ -53,7 +53,7 @@ Minikube 터널을 통해 외부에서 EXTERNAL-IP:80으로 접근할 수 있도
 
 ## 🛠️ Trouble Shooting
 
-###  1. 기존 이미지 사용 시 CrashLoopBackOff 문제
+###  1️⃣ 기존 이미지 사용 시 CrashLoopBackOff 문제
 
 이전에 생성된 이미지 파일을 사용하려 했으나, Deployment 생성 후 Pod의 상태가 **CrashLoopBackOff**가 발생했습니다. 이는 애플리케이션이 실행된 후 프로세스를 유지하지 않고 종료될 때 발생합니다.
 

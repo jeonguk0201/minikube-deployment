@@ -16,19 +16,19 @@ Docker Hub에 이미지를 업로드하고 Minikube에 배포
 ### 1️⃣ Jar 파일 생성
 배포할 애플리케이션의 Jar 파일을 생성합니다.
 
-![alt text](image.png)
+![alt text](images/image.png)
 
-### 2. 2️⃣ Docker Hub에 이미지 Push
+### 2️⃣ Docker Hub에 이미지 Push
 생성한 이미지를 Docker Hub에 업로드합니다.
 
-![alt text](image-1.png)
+![alt text](images/image-1.png)
 
 
 
 ### 3️⃣ Deployment 생성
 Kubernetes Deployment를 생성하여 애플리케이션을 Minikube에 배포합니다.
 
-![alt text](image-3.png)
+![alt text](images/image-3.png)
 
 ### 4️⃣ Service 생성
 ```bash
@@ -36,20 +36,20 @@ kubectl expose deployment myapp --type=LoadBalancer --port=80
 ```
 Service를 생성하여 외부 트래픽이 애플리케이션으로 전달될 수 있도록 설정합니다.
 
-### 5. 5️⃣ Minikube Tunnel 및 포트 포워딩
+### 5️⃣ Minikube Tunnel 및 포트 포워딩
 
 ```bash
 minikube tunnel
 ```
 Minikube 터널을 통해 외부에서 EXTERNAL-IP:80으로 접근할 수 있도록 포트 포워딩을 설정합니다.
 
-![alt text](image-7.png)
+![alt text](images/image-7.png)
 
 
-### 6. 6️⃣ 실행 및 확인
+### 6️⃣ 실행 및 확인
 배포된 애플리케이션이 정상적으로 실행되고 있는지 확인합니다.
 
-![](image-8.png)
+![](images/image-8.png)
 
 ## 🛠️ Trouble Shooting
 
@@ -62,19 +62,19 @@ Minikube 터널을 통해 외부에서 EXTERNAL-IP:80으로 접근할 수 있도
 ### 2️⃣ Docker Hub에 이미지 Push 실패
 Docker Hub에 로그인하였으나, 이미지가 업로드되지 않는 문제가 발생했습니다.
 
-![alt text](image-2.png)
+![alt text](images/image-2.png)
 
 > **해결 방법:** 로그아웃 후 다시 로그인하여 문제를 해결했습니다.
 
 ### 3️⃣ Another tunnel process is already running 에러
 
-![alt text](image-5.png)
+![alt text](images/image-5.png)
 
 Minikube 터널을 실행할 때, 기존의 터널 프로세스가 이미 실행 중인 오류가 발생했습니다.
 ```bash
 ps aux | grep "minikube tunnel"
 ```
-![alt text](image-6.png)
+![alt text](images/image-6.png)
 
 ```bash
 kill -9 65943
@@ -83,11 +83,11 @@ kill -9 65943
 기존 터널 프로세스를 종료한 후 다시 실행하여 문제를 해결했습니다.
 
 
-### 4. 4️⃣ targetPort 설정 문제
+### 4️⃣ targetPort 설정 문제
 
 Spring Boot 애플리케이션에서 `server.port`를 8086으로 설정했으나, Service의 `targetPort`가 80으로 설정되어 있어 문제가 발생했습니다.
 
-![](image-9.png)
+![](images/image-9.png)
 
 
 
